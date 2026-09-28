@@ -1,0 +1,272 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: #0b0f17;
+    color: #ffffff;
+    max-width: 480px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    background-color: #1e293b;
+    border-bottom: 1px solid #334155 ;
+}
+
+header nav a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+header nav a:hover {
+  color: #ffffff;
+}
+
+.view-tabs {
+    display: flex;
+    align-items: center;
+    background-color: #0f172a;
+    padding: 4px;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+}
+
+.view-tabs button {
+    border: none;
+    background: transparent;
+    flex: 1;
+    cursor: pointer;
+    color: #94a3b8;
+    padding: 0.6rem 1rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.view-tabs button.active {
+background-color: #334155;
+border-radius: 8px;
+color: #4ade80;
+}
+
+.view-tabs button:hover {
+  color: #f8fafc;
+}
+
+#updates-tracker {
+    padding: 1.5rem;
+}
+
+#updates-tracker h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #94a3b8;
+}
+
+#live-updates {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#live-updates li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #1e293b;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    transition: 0.2s;
+    border-left: 4px solid transparent;
+}
+
+#live-updates li.goal {
+    border-left-color: #22c55e;
+}
+
+#live-updates li.card-yellow {
+  border-left-color: #eab308; /* Yellow accent for yellow cards */
+}
+
+#live-updates li.card-red {
+  border-left-color: #ef4444; /* Red accent for red cards */
+}
+
+.event-time {
+    font-weight: 600;
+    color: #22c55e;
+    font-size: 0.9rem;
+    text-align: right;
+}
+
+.event-text {
+    color: #f8fafc;
+    font-size: 0.9rem;
+    flex:1;
+}
+
+.event-text strong {
+    color: #e2e8f0;
+    font-weight: 700;
+}
+
+.event-icon {
+    font-size: 1rem;
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    width: 1.5rem;
+}
+
+#live-updates li:hover {
+    background-color: #062669;
+    
+}
+
+.team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+}
+
+.teams-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start
+}
+
+.score-display {
+    margin-top: 15px;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #f8fafc;
+}
+
+.teams-container small {
+    color: #6c8bb6;
+}
+
+.scorers {
+    margin-top: 5px;
+}
+
+.badge-placeholder {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    display: flex;
+    background-color:#334155 ;
+    display:flex ;
+    align-items: center;
+}
+
+.match-meta {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.live-clock {
+    color:#4ade80 ;
+}
+
+.league-name {
+    text-transform: capitalize;
+    font-size: 0.7rem;
+}
+
+.filter-tabs {
+    display: flex;
+    gap: 8px; 
+}
+
+.filter-tabs button {
+    padding: 0.4rem 0.9rem;
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    cursor: pointer;
+    border-radius: 9999px;
+    color: #94a3b8;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.filter-tabs button.active {
+    color:#0f172a;
+    background-color: #4ade80;
+    border-color: #4ade80;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.filter-tabs button:hover {
+    color: #f8fafc;
+    border-color: #475569;
+    background-color: #334155;
+}
+
+
+#clock {
+  background: 
+    linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.9)),
+    url('Football images.png') center/cover no-repeat;
+  padding: 1.5rem;
+  border-radius: 0 0 16px 16px;
+}
+
+.feed-container {
+  background: 
+    radial-gradient(circle at 50% 0%, rgba(74, 222, 128, 0.08), transparent 60%),
+    linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+  border: 1px solid #334155;
+  border-radius: 16px;
+  padding: 1.25rem;
+}
+
+.stats-container {
+    background: radial-gradient(circle at 50% 0%, rgba(74, 222, 128, 0.08), transparent 60%),
+    linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 1.5rem;
+    gap: 1.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.stat-title {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.2rem;
+}
+
+.stat-val.home {
+    color:#4ade80 ;
+    font-weight: 600;
+}
+
+.stat-val.away {
+    color:#f8fafc ;
+    font-weight: 600;
+}

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Score Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Nav Bar -->
+    <header>
+      <nav>
+        <a href="#" id="matches">Matches</a>
+        <a href="#" id="leagues">Leagues</a>
+        <a href="#" id="news">News</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Score Tracking -->
+      <section id="clock">
+        <div id="live-clock-track" class="match-meta">
+          <span class="league-name">PREMIER LEAGUE</span>
+          <span id="live-clock" class="live-clock">52' ● LIVE</span>
+        </div>
+
+        <div class="teams-container">
+          <!-- Home Team -->
+          <div id="home-team-container" class="team home">
+            <div class="badge-placeholder">[Logo]</div>
+            <h2 id="home-team-name">Arsenal</h2>
+            <div id="home-scorers" class="scorers">
+              <small>Saka 14', 48'</small>
+            </div>
+          </div>
+
+          <!-- Score -->
+          <div id="score-track" class="score-display">
+            <span id="home-score">2</span>
+            <span>:</span>
+            <span id="away-score">0</span>
+          </div>
+
+          <!-- Away Team -->
+          <div id="away-team-container" class="team away">
+            <div class="badge-placeholder">[Logo]</div>
+            <h2 id="away-team-name">Chelsea</h2>
+            <div id="away-scorers" class="scorers">
+              <small></small>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="feed-container">
+        <!-- View Selector Tabs -->
+        <nav id="stats-lineup-nav" class="view-tabs">
+          <button class="active">Events</button>
+          <button>Stats</button>
+          <button>Lineups</button>
+        </nav>
+        <!-- Highlights filter -->
+        <div class="filter-tabs">
+          <button class="active">All</button>
+          <button>Goals</button>
+          <button>Cards</button>
+        </div>
+
+        <!-- Highlights Update -->
+        <section id="updates-tracker">
+          <h3>Match Updates</h3>
+          <ul id="live-updates">
+            <li class="card-yellow">
+              <span class="event-time">50'</span>
+              <span class="event-icon">🟨</span>
+              <span class="event-text"
+                >Yellow Card – <strong> C. Palmer</strong></span
+              >
+            </li>
+            <li class="goal">
+              <span class="event-time">48'</span>
+              <span class="event-icon">⚽</span>
+              <span class="event-text">GOAL!<strong> B. Saka </strong></span>
+            </li>
+            <li class="goal">
+              <span class="event-time">14'</span>
+              <span class="event-icon">⚽</span>
+              <span class="event-text">GOAL!<strong> B. Saka</strong></span>
+            </li>
+          </ul>
+        </section>
+      </section>
+      <!-- Match Stats View -->
+      <section id="stats-tab" class="tab-contents">
+        <div class="stats-container">
+          <!-- Stat Row: Possession -->
+          <div class="stat-row">
+            <div class="stat-labels">
+              <span class="stat-val home">58%</span>
+              <span class="stat-title">Possession</span>
+              <span class="stat-val away">42%</span>
+            </div>
+            <div class="stat-bar-track">
+              <div class="stat-bar home-bar" style="width: 58%"></div>
+              <div class="stat-bar away-bar" style="width: 42%"></div>
+            </div>
+          </div>
+
+          <!-- Stat Row: Total Shots -->
+          <div class="stat-row">
+            <div class="stat-labels">
+              <span class="stat-val home">14</span>
+              <span class="stat-title">Total Shots</span>
+              <span class="stat-val away">9</span>
+            </div>
+            <div class="stat-bar-track">
+              <div class="stat-bar home-bar" style="width: 61%"></div>
+              <div class="stat-bar away-bar" style="width: 39%"></div>
+            </div>
+          </div>
+
+          <!-- Stat Row: Shots on Target -->
+          <div class="stat-row">
+            <div class="stat-labels">
+              <span class="stat-val home">6</span>
+              <span class="stat-title">Shots on Target</span>
+              <span class="stat-val away">3</span>
+            </div>
+            <div class="stat-bar-track">
+              <div class="stat-bar home-bar" style="width: 67%"></div>
+              <div class="stat-bar away-bar" style="width: 33%"></div>
+            </div>
+          </div>
+          <!-- Stat Row: Pass Accuracy -->
+          <div class="stat-row">
+            <div class="stat-labels">
+              <span class="stat-val home">87%</span>
+              <span class="stat-title">Pass Accuracy</span>
+              <span class="stat-val away">81%</span>
+            </div>
+            <div class="stat-bar-track">
+              <div class="stat-bar home-bar" style="width: 87%"></div>
+              <div class="stat-bar away-bar" style="width: 81%"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
