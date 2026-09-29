@@ -270,3 +270,24 @@ color: #4ade80;
     color:#f8fafc ;
     font-weight: 600;
 }
+
+.stat-bar-track {
+    display: flex;
+    height: 8px;
+    background-color: #0f172a;
+    border-radius: 10px;
+    overflow: hidden;
+    gap: 2px;
+}
+
+.stat-bar {
+    height: 100%;
+}
+
+.home-bar {
+    background-color: #4ade80;
+}
+
+.away-bar {
+    background-color: #64748b;
+}
