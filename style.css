@@ -291,3 +291,7 @@ color: #4ade80;
 .away-bar {
     background-color: #64748b;
 }
+
+.hidden {
+    display: none !important;
+}

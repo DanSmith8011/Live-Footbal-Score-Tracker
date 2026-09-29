@@ -55,9 +55,9 @@
       <section class="feed-container">
         <!-- View Selector Tabs -->
         <nav id="stats-lineup-nav" class="view-tabs">
-          <button class="active">Events</button>
-          <button>Stats</button>
-          <button>Lineups</button>
+          <button id="events-button" class="active">Events</button>
+          <button id="stats-button">Stats</button>
+          <button id="lineups-button">Lineups</button>
         </nav>
         <!-- Highlights filter -->
         <div class="filter-tabs">
@@ -92,7 +92,7 @@
       </section>
 
       <!-- Match Stats View -->
-      <section id="stats-tab" class="tab-contents">
+      <section id="stats-tab" class="tab-contents hidden">
         <div class="stats-container">
           <!-- Stat Row: Possession -->
           <div class="stat-row">
@@ -147,5 +147,6 @@
         </div>
       </section>
     </main>
+    <script src="App.js"></script>
   </body>
 </html>
