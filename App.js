@@ -1,4 +1,5 @@
 let season = []
+const apiKey = window.API_KEY
 
 const statsButton = document.getElementById('stats-button')
 const eventsButton = document.getElementById('events-button')
@@ -12,6 +13,8 @@ const awayBadgeTeam = document.querySelector('.away-badge')
 const listView = document.getElementById('list-view');
 const detailView = document.getElementById('detail-view');
 const fixturesLog = document.getElementById('fixtures-container')
+const navBar = document.getElementById('stats-lineup-nav"')
+
 
 eventsButton.addEventListener('click', function (e) {
     eventFeed.classList.remove('hidden')
@@ -44,10 +47,11 @@ async function getSeason() {
     
     const response = await fetch(url, {
         method: 'GET',
-        headers: {"x-apisports-key" : apiKey}
+        headers: {"x-apisports-key" : API_KEY}
     })
     const data = await response.json()
     season = data.response
+    console.log(season)
     return season
 }
 
@@ -62,7 +66,7 @@ function renderFixtures(season) {
     fixturesLog.innerHTML = ''
     season.forEach(fixture => {
         const fixtureCard = document.createElement('article')
-        fixtureCard.dataset.id = fixture.id
+        fixtureCard.dataset.id = fixture.fixture.id
 
         fixtureCard.innerHTML = `
             <h5>${fixture.teams.home.name}</h5>
@@ -76,13 +80,46 @@ function renderFixtures(season) {
     })
 }
 
-fixturesLog.addEventListener ('click', function (e) {
-    const matchId = e.target.dataset.id;
-    const selectedFixture = season.find(fixture => fixture.id == matchId)
+fixturesLog.addEventListener ('click', async function (e) {
+    const card = e.target.closest('article');
 
+    if (!card) return;
+    const matchId = card.dataset.id
+
+    let matchEvents = []
+
+    try {
+        const response = await fetch(`https://v3.football.api-sports.io/fixtures/events?fixture=${matchId}`, {
+            method: 'GET',
+            headers: {"x-apisports-key" : API_KEY} 
+        });
+
+
+        if(!response.ok) {
+            throw new Error(`Failed to fetch match events. Status: ${response.status}`)
+        }
+        const data = await response.json();
+        matchEvents = data.response
+        console.log(matchEvents)
+        
+
+    } catch (error) {
+        console.error('Caught an error during the fetch:', error.message);
+
+        return 'Unavailable'
+    }
+
+    
+
+    const selectedFixture = season.find(fixture => fixture.fixture.id == matchId)
+    console.log(selectedFixture)
     if (selectedFixture) {
+        selectedFixture.events = matchEvents
+        
         const headerContainer = document.getElementById('match-header-container')
         headerContainer.innerHTML = createMatchHeader(selectedFixture)
+        const contentContainer = document.getElementById("match-content-container")
+        contentContainer.innerHTML = createEvents(selectedFixture)
 
         document.getElementById('list-view').classList.add('hidden')
         document.getElementById('detail-view').classList.remove('hidden')
@@ -107,5 +144,27 @@ fixturesLog.addEventListener ('click', function (e) {
             </div>
         </div>
     `;
+}
+
+function createEvents (matchData) {
+
+const events = matchData.events
+
+if (!events || events.length === 0) {
+    return `<p style="color: #94a3b8; text-align: center; padding: 1rem;">No events recorded for this match.</p>`;
+    }
+
+    return events.map(event => {
+        return `
+        <li class='event-item'>
+        <span class='event-time'>${event.time.elapsed}</span>
+        <span class='event-type'>${event.type}</span>
+        <span class='event-detail'>
+        <strong>${event.player.name}</strong> (${event.team.name})
+        ${event.assist ? `- Assist: ${event.assist.name}` : ''}
+        </span>
+        </li>
+        `
+    }).join('');
 }
 

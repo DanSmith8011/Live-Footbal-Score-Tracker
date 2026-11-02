@@ -37,16 +37,17 @@
 
     <!-- Navigation tabs -->
     <nav id="stats-lineup-nav" class="view-tabs">
-        <button id="events-button" class="active">Events</button>
-        <button id="stats-button">Stats</button>
-        <button id="lineups-button">Lineups</button>
+        <button id="events-button" data-tab="events" class="active">Events</button>
+        <button id="stats-button" data-tab="stats">Stats</button>
+        <button id="lineups-button" data-tab="lineups">Lineups</button>
     </nav>
 
     <!-- Dynamic content container for stats, events, or lineups -->
     <div id="match-content-container"></div>
 </main>
-    
-    <script src="app.js"></script>
+
     <script src="config.js"></script>
+    <script src="app.js"></script>
+   
   </body>
 </html>
