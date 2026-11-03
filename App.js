@@ -157,7 +157,7 @@ if (!events || events.length === 0) {
     return events.map(event => {
         return `
         <li class='event-item'>
-        <span class='event-time'>${event.time.elapsed}</span>
+        <span class='event-time'>${event.time.elapsed}'</span>
         <span class='event-type'>${event.type}</span>
         <span class='event-detail'>
         <strong>${event.player.name}</strong> (${event.team.name})

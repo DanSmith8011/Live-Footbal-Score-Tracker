@@ -103,14 +103,9 @@ color: #4ade80;
   border-left-color: #ef4444; /* Red accent for red cards */
 }
 
-.event-time {
-    font-weight: 600;
-    color: #22c55e;
-    font-size: 0.9rem;
-    text-align: right;
-}
 
-.event-text {
+
+.event-type {
     color: #f8fafc;
     font-size: 0.9rem;
     flex:1;
@@ -118,7 +113,7 @@ color: #4ade80;
 
 .event-text strong {
     color: #e2e8f0;
-    font-weight: 700;
+    
 }
 
 .event-icon {
@@ -232,20 +227,19 @@ color: #4ade80;
 
 
 #clock {
-  background: 
-    linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.9)),
-    url('Football images.png') center/cover no-repeat;
-  padding: 1.5rem;
-  border-radius: 0 0 16px 16px;
+background: 
+linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.9)), url('Football images.png') center/cover no-repeat;
+padding: 1.5rem;
+border-radius: 0 0 16px 16px;
 }
 
 .feed-container {
-  background: 
-    radial-gradient(circle at 50% 0%, rgba(74, 222, 128, 0.08), transparent 60%),
+background: 
+radial-gradient(circle at 50% 0%, rgba(74, 222, 128, 0.08), transparent 60%),
     linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
-  border: 1px solid #334155;
-  border-radius: 16px;
-  padding: 1.25rem;
+border: 1px solid #334155;
+border-radius: 16px;
+padding: 1.25rem;
 }
 
 .stats-container {
@@ -350,4 +344,39 @@ color: #4ade80;
     font-size: 1.2rem;
     padding: 0 15px;
     letter-spacing: 1px;
+}
+
+.event-item {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: stretch;
+    min-height: 40px;
+    background-color: #1e293b;
+    border-radius: 5px;
+    margin-top: 5px;
+    padding-right: 5px;
+    
+    
+}
+
+.event-time {
+    font-weight: 600;
+    color: #22c55e;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    display: inline-block;
+    background-color: #0f172a;
+    text-align: center;
+    min-width: 45px;
+    padding: 8px;
+    align-items: stretch;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.event-type,
+.event-detail {
+    display: flex;
+    align-items: center; /* Centers the text vertically inside the full-height card */
 }
