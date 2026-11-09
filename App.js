@@ -155,13 +155,14 @@ if (!events || events.length === 0) {
     }
 
     return events.map(event => {
+        const assistText = event.type === 'Goal' ? event.assist?.name && event.assist.name !== 'null' ? `Assist: ${event.assist.name}` : '' : ''
+
         return `
         <li class='event-item'>
         <span class='event-time'>${event.time.elapsed}'</span>
         <span class='event-type'>${event.type}</span>
         <span class='event-detail'>
-        <strong>${event.player.name}</strong> (${event.team.name})
-        ${event.assist ? `- Assist: ${event.assist.name}` : ''}
+        <strong>${event.player.name}</strong> (${event.team.name}) ${assistText}
         </span>
         </li>
         `
