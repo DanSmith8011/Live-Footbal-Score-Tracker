@@ -156,16 +156,40 @@ if (!events || events.length === 0) {
 
     return events.map(event => {
         const assistText = event.type === 'Goal' ? event.assist?.name && event.assist.name !== 'null' ? `Assist: ${event.assist.name}` : '' : ''
+        const subsText = event.type === 'subst' ? event.assist?.name && event.assist.name !== 'null' ? `Substitute: ${event.assist.name}` : '' : ''
 
         return `
         <li class='event-item'>
         <span class='event-time'>${event.time.elapsed}'</span>
-        <span class='event-type'>${event.type}</span>
+        <span class='event-type'>${event.type} ${createEmoji(event)}</span>
         <span class='event-detail'>
-        <strong>${event.player.name}</strong> (${event.team.name}) ${assistText}
+        <strong>${event.player.name}</strong> (${event.team.name}) ${assistText} ${subsText}
         </span>
         </li>
         `
     }).join('');
 }
 
+
+function createEmoji (checkEvent) {
+    const eventType = checkEvent.type ? checkEvent.type.toLowerCase() : ''
+    const eventDetail = checkEvent.detail ?checkEvent.detail.toLowerCase() : ''
+
+    if (eventType.includes('goal')) {
+        return '⚽';
+    }
+
+    if (eventType.includes('subst')) {
+        return '🔄';
+    }
+
+    if (eventDetail.includes('red card')) {
+        return '🟥';
+    }
+
+    if (eventDetail.includes('yellow card')) {
+        return '🟨';
+    }
+
+    return '';
+}
