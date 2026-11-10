@@ -14,9 +14,11 @@ const listView = document.getElementById('list-view');
 const detailView = document.getElementById('detail-view');
 const fixturesLog = document.getElementById('fixtures-container')
 const navBar = document.getElementById('stats-lineup-nav"')
+const backButton = document.getElementById('back-btn')
 
 
 eventsButton.addEventListener('click', function (e) {
+    e.preventDefault();
     eventFeed.classList.remove('hidden')
     statsFeed.classList.add('hidden')
     eventsButton.classList.add('active')
@@ -25,6 +27,7 @@ eventsButton.addEventListener('click', function (e) {
 })
 
 statsButton.addEventListener('click', function (e){
+    e.preventDefault();
     eventFeed.classList.add('hidden')
     statsFeed.classList.remove('hidden')
     eventsButton.classList.remove('active')
@@ -32,14 +35,20 @@ statsButton.addEventListener('click', function (e){
     lineupsButton.classList.remove('active')
 })
 
+backButton.addEventListener('click', function (e){
+    e.preventDefault();
+    showListView()
+
+})
+
 function showDetailView(matchId) {
-    listView.hidden = true;     
-    detailView.hidden = false;   
+    listView.classList.add('hidden')    
+    detailView.classList.remove('hidden')  
 }
 
 function showListView() {
-    detailView.hidden = true;   
-    listView.hidden = false;     
+    listView.classList.remove('hidden')    
+    detailView.classList.add('hidden')   
 }
 
 async function getSeason() {
@@ -81,6 +90,7 @@ function renderFixtures(season) {
 }
 
 fixturesLog.addEventListener ('click', async function (e) {
+    e.preventDefault()
     const card = e.target.closest('article');
 
     if (!card) return;
