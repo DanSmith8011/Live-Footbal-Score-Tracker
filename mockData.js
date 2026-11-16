@@ -1,3 +1,6 @@
+const lineupContainer = document.querySelector('.lineups-bottom-container');
+
+
 const mockLineups = [
     {
         team: {name: 'Arsenal'}, 
@@ -59,3 +62,39 @@ const mockLineups = [
 
 ]
 
+function createLineups(lineups) {
+return lineups.map((teamData, index) => {
+
+    const homeOrAway = index === 0 ? 'Home' : 'Away';
+
+    const startingEleven = teamData.startXI.map(player => {
+        return `<h3>${player.player.name}</h3>
+        <h3>${player.player.number}</h3>`;
+        
+    }).join('');
+    const subs = teamData.substitutes.map(player => {
+        return`<h3>${player.player.name}</h3>
+        <h3>${player.player.number}</h3>`;
+        
+    }).join('')
+    return `
+    <div class = 'team-card'>
+        <h2>${teamData.team.name} (${homeOrAway})</h2>
+        <p>Formation: ${teamData.formation}</p>
+        <div class='players-list'>
+        ${startingEleven}
+        </div>
+
+        <div class='subs-list'>
+        ${subs}
+        </div>
+        </div>
+    `
+}).join('')
+}
+
+function renderLineups(lineupsData) {
+    lineupContainer.innerHTML = createLineups(lineupsData)
+}
+
+renderLineups(mockLineups)
