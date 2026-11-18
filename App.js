@@ -19,6 +19,8 @@ const lineupContainer = document.getElementById('lineups-view')
 const matchContentContainer = document.getElementById('match-content-container')
 
 
+let selectedFixture = null;
+
 const mockLineups = [
     {
         team: {name: 'Arsenal'}, 
@@ -82,6 +84,7 @@ const mockLineups = [
 
 eventsButton.addEventListener('click', function (e) {
     e.preventDefault();
+    matchContentContainer.innerHTML = createEvents(selectedFixture)
     eventFeed.classList.remove('hidden')
     statsFeed.classList.add('hidden')
     eventsButton.classList.add('active')
@@ -96,6 +99,7 @@ statsButton.addEventListener('click', function (e){
     eventsButton.classList.remove('active')
     statsButton.classList.add('active')
     lineupsButton.classList.remove('active')
+
 })
 
 lineupsButton.addEventListener('click', function (e) {
@@ -197,7 +201,7 @@ fixturesLog.addEventListener ('click', async function (e) {
 
     
 
-    const selectedFixture = season.find(fixture => fixture.fixture.id == matchId)
+    selectedFixture = season.find(fixture => fixture.fixture.id == matchId)
     console.log(selectedFixture)
     if (selectedFixture) {
         selectedFixture.events = matchEvents
