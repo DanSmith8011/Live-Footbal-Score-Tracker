@@ -350,8 +350,6 @@ padding: 1.25rem;
     border-radius: 5px;
     margin-top: 5px;
     padding-right: 5px;
-    
-    
 }
 
 .event-time {
@@ -365,8 +363,6 @@ padding: 1.25rem;
     min-width: 45px;
     padding: 8px;
     align-items: stretch;
-    
-    
 }
 .team-home, .team-away {
     display: flex;
@@ -390,4 +386,53 @@ padding: 1.25rem;
     text-align: center;
     margin: 0;
     font-size: 1.2rem; 
+}
+
+.lineups-active {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.team-card {
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.players-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: space-between;
+}
+
+.player-name {
+    margin: 0;
+    padding: 0.6rem 0.8rem;
+    background-color: #1e293b;
+    border-radius: 8px;
+}
+
+.subs-name {
+    background-color: rgba(255, 255, 255, 0.04);
+    margin: 0;
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+}
+
+.team-card h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.team-card p {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.subs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: space-between;
 }

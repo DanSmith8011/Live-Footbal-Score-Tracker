@@ -85,6 +85,8 @@ const mockLineups = [
 eventsButton.addEventListener('click', function (e) {
     e.preventDefault();
     matchContentContainer.innerHTML = createEvents(selectedFixture)
+    matchContentContainer.classList.remove('lineups-active')  
+    matchContentContainer.classList.add('events-active')  
     eventFeed.classList.remove('hidden')
     statsFeed.classList.add('hidden')
     eventsButton.classList.add('active')
@@ -105,6 +107,8 @@ statsButton.addEventListener('click', function (e){
 lineupsButton.addEventListener('click', function (e) {
     e.preventDefault();
     renderLineups(mockLineups)
+    matchContentContainer.classList.add('lineups-active')  
+    matchContentContainer.classList.remove('events-active')  
     eventFeed.classList.add('hidden')
     statsFeed.classList.add('hidden')
     eventsButton.classList.remove('active')
@@ -290,13 +294,12 @@ return lineups.map((teamData, index) => {
     const homeOrAway = index === 0 ? 'Home' : 'Away';
 
     const startingEleven = teamData.startXI.map(player => {
-        return `<h3>${player.player.name}</h3>
-        <h3>${player.player.number}</h3>`;
+        return `<h3 class='player-name'>${player.player.number} ${player.player.name}</h3>`;
         
     }).join('');
     const subs = teamData.substitutes.map(player => {
-        return`<h3>${player.player.name}</h3>
-        <h3>${player.player.number}</h3>`;
+        return`<h3 class='subs-name'>${player.player.number} ${player.player.name}</h3>`
+        ;
         
     }).join('')
     return `
@@ -308,6 +311,7 @@ return lineups.map((teamData, index) => {
         </div>
 
         <div class='subs-list'>
+        <h4>Substitues</h4>
         ${subs}
         </div>
         </div>
